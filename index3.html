@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+   <div class="app">
+  <form id="search-form">
+    <input
+      type="search"
+      placeholder="Enter a city.."
+      required
+      class="search-form-input"
+      id="search-form-input"
+    />
+    <input type="submit" value="Search" class="search-button" />
+  </form>
+</head>
+<body>
+  
+  <main>
+    <div class="current-weather">
+     
+        
+        <h1 class="city" id="city"></h1>
+        
+        <span class="current-temperature-value" id="temperature"
+            ></span>
+        
+          <span class="current-temperature-unit">°C</span>
+          <span class="current-temperature-icon" id="icon"></span
+            >
+        <p class="current-details">
+          <span class="date" id="time"></span>  <span class="description" id="description"> Blue Skies</span>  <br /> 
+        <span class="stagnant-details" > Humidity: <strong id="humidity"></strong> </br> Wind: <strong id="wind"></strong></span>  
+      </p>
+    </div>
+  </main>
+  <hr>
+  <footer>
+    <p>
+     <div class="footer">
+      This project was coded by
+      <a href="https://github.com/rebecca967" target="_blank">Rebecca</a> and is
+      <a href="https://github.com/rebecca967/Shecodes-project-L6" target="_blank"> on GitHub</a> and
+      <a href="https://main--deluxe-stroopwafel-0848f2.netlify.app/" target="_blank">hosted on Netlify</a>
+    </div> 
+    </p>
+  </footer>
+</div>
+
+</body>
+<script src="index.js"></script>
+</html>
