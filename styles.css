@@ -101,3 +101,22 @@ body {
   padding-top: 40px;
   text-align: center;
 }
+
+.weather-forecast{
+  margin-top: 20px;
+  color: #000
+  }
+
+.weather-forecast-date{
+  font-size: 16px;
+  opacity: 0.6;
+  font-weight: bold;
+}
+.weather-forecast-temperature-minimum {
+  opacity:0.5
+}
+
+.weather-forecast-temperatures{
+  font-size: 13px;
+  font-weight: bold;
+}
