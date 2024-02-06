@@ -23,6 +23,9 @@ function refreshWeather(response)
 }
 console.log("data")
 
+
+let forecastHtml = "";
+
 function formatDate(date){
    let minutes = date.getMinutes()
   let hours = date.getHours()
@@ -61,46 +64,42 @@ function getForecast(city){
 }
 
 function displayForecast(response) {
-  console.log(response.data)
-  let forecastElement = document.querySelector("#forecast")
- 
-  let days =["Mon","Tues","Wed","Thurs","Fri","Sat"]
-  let forecastHtml=""
-  
-  days.forEach(function(day) { 
-    forecastHtml = 
-    forecastHtml +
-    `<div class = "weather-forecast">
-    
-      <div class="weather-forecast-date">${day}</div>
-      
-      <img src= "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png" alt="" width="42">
-      <div class="weather-forecast-temperatures"> <span class="weather-forecast-temperature-max">18°C</span>
-        <span class="weather-forecast-temperature-minimum">12°C</span>
-      </div>
-     </div>
-    </div>
-    `
+  console.log(response.data);
 
-  }) 
-  forecastElement.innerHTML= forecastHtml
+  let forecastHtml = "";
+  let forecastElement = document.getElementById("forecast"); 
 
+  response.data.daily.forEach(function(day) {
+    forecastHtml +=
+      '<div class="weather-forecast">' +
+      '<div class="weather-forecast-date">' + day.date + '</div>' +
+      '<div class="weather-forecast-icon"><img src="' + day.condition.icon_url + '"></div>' +
+      '<div class="weather-forecast-temperatures">' +
+      '<div class="weather-forecast-temperature">' +
+      '<strong>' + Math.round(day.temperature.maximum) + '°C</strong>' +
+      '</div>' +
+      '<div class="weather-forecast-temperature">' + Math.round(day.temperature.minimum) + '°C</div>' +
+      '</div>' +
+      '</div>';
+  });
+  forecastElement.innerHTML = forecastHtml;
 }
 
 
-
-function handleSearchSubmit(event) 
-{
+function handleSearchSubmit(event) {
   event.preventDefault();
+
   let searchInput = document.querySelector("#search-form-input");
   console.log(searchInput.value);
+
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = searchInput.value;
-  searchCity(searchInput.value)
+
+  searchCity(searchInput.value);
+  displayForecast();
 }
 
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
-searchCity("Edmonton") 
-displayForecast()
+searchCity("Edmonton");
