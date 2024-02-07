@@ -62,17 +62,24 @@ function getForecast(city){
   console.log(apiUrl)
   axios(apiUrl).then(displayForecast)
 }
+function formatDate (timestamp) {
+  let today = new Date(timestamp * 1000);
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    return days[today.getDay()];
+    
+  }
+
+
 
 function displayForecast(response) {
   console.log(response.data);
 
   let forecastHtml = "";
   let forecastElement = document.getElementById("forecast"); 
-
-  response.data.daily.forEach(function(day) {
-    forecastHtml +=
+ {
+    forecastHtml += 
       '<div class="weather-forecast">' +
-      '<div class="weather-forecast-date">' + day.date + '</div>' +
+      '<div class="weather-forecast-date">' + day.time + '</div>' +
       '<div class="weather-forecast-icon"><img src="' + day.condition.icon_url + '"></div>' +
       '<div class="weather-forecast-temperatures">' +
       '<div class="weather-forecast-temperature">' +
@@ -80,8 +87,11 @@ function displayForecast(response) {
       '</div>' +
       '<div class="weather-forecast-temperature">' + Math.round(day.temperature.minimum) + '°C</div>' +
       '</div>' +
-      '</div>';
-  });
+      '</div>'+
+      '<div class="weather-forecast-date">+ formatDate(day.time)' + 
+      '</div>'
+
+  } 
   forecastElement.innerHTML = forecastHtml;
 }
 
@@ -98,6 +108,7 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
   displayForecast();
 }
+
 
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
