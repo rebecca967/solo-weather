@@ -5,9 +5,8 @@ body {
   background: rgb(251, 251, 255);
   margin: 0 auto;
   max-width: 650px;
-  max-height: 460px;
   padding:100px;
-  padding-bottom: 150px ;
+  padding-bottom: 50px ;
   padding-left: 60px ;
   padding-right:  90px; ;
   padding-top: 40px ;
@@ -68,7 +67,7 @@ body {
 
 .current-temperature-icon{
   font-size: 80px;
-  padding-left: 210px;
+  padding-left: 250px;
 
 }
 
@@ -81,7 +80,7 @@ body {
 
 .description{
   font-size: 30px;
-  padding-left: 200px;
+  padding-left: 250px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   
 }
@@ -102,7 +101,7 @@ body {
   text-align: center;
 }
 
-.weather-forecast{
+#forecast {
   margin-top: 20px;
   color: #000;
   display:flex;
@@ -116,15 +115,28 @@ justify-content:space-around;
  
 }
 .weather-forecast-temperature {
-  opacity:0.5
+  opacity:0.5;
+  color: rgb(77, 80, 80);
+  padding-left: 20px;
+  
 }
 
 .weather-forecast-temperatures{
   font-size: 13px;
   font-weight: bold;
+  
 }
 
-.weather-forecast-icon{
-  width: 1px;
-  margin-right: 50px;
+.weather-forecast-icon img{
+  width: 70px;
+padding-right: 10px;
+  
+}
+
+.weather-forecast-day{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 500px;
+  
 }
